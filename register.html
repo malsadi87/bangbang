@@ -1,0 +1,272 @@
+<!--
+author: W3layouts
+author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>BangBang : Home Made Food</title>
+<!-- custom-theme -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Food Recipe a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+<!-- //custom-theme -->
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+
+<link href="css/register.css" rel="stylesheet" type="text/css" media="all" />
+
+<!-- js -->
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<!-- //js -->
+
+<!-- font-awesome-icons -->
+<link rel="stylesheet" href="css/font-awesome.min.css" />
+<!-- //font-awesome-icons -->
+
+<script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-firestore.js"></script>
+<script src="js/firebase.js"></script>
+
+</head>
+	
+<body>
+
+
+<div class="banner-header banner2">
+	<div class="banner-dott1">
+		<!--header-->
+		<div class="header">
+		<div class="container-fluid">
+			<nav class="navbar navbar-default">
+				<div class="navbar-header navbar-left">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<div class="w3_navigation_pos">
+						<h1><a href="index.html">BangBang</a></h1>
+					</div>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+					<nav>
+						<ul class="nav navbar-nav">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="about.html">About Us</a></li>
+							<li><a href="services.html">Our Services</a></li>
+							<li><a href="gallery.html">Gallery</a></li>
+							
+							<li><a href="contact.html">Contact</a></li>
+						</ul>
+					</nav>
+				</div>
+			</nav>	
+		</div>
+	</div>
+		<!--//header-->
+	</div>
+</div>
+<!-- // banner -->
+
+<!-- contact -->		
+	<div class="contact">
+		<div class="container">
+			<h2 class="heading">Sign <span>Up</span></h2>
+				<p class="heading">Be a BangBang Member</p>
+			<div class="contact-agileinfo">
+				<div class="col-md-7 contact-right"> 
+					
+					<div class="container register">
+						
+							<div class="col-md-9 register-right">
+								
+								<div class="tab-content" id="myTabContent">
+									
+									<form id="registerForm" method="post" onsubmit="event.preventDefault(); registerUser();" >
+									<div  id="home" role="tabpanel" aria-labelledby="home-tab">
+										<div class="row register-form">
+											<div class="col-md-6">
+												<div class="form-group">
+													<input type="text" id="firstName" class="form-control" placeholder="Full Name *" value="" />
+												</div>
+												<!--<div class="form-group">
+													<input type="text" id="lastName" class="form-control" placeholder="Last Name *" value="" />
+												</div>-->
+												<div class="form-group">
+													<input type="password" id="password" class="form-control" placeholder="Password *" value="" />
+												</div>
+												<!--<div class="form-group">
+													<input type="password" id="password2" class="form-control"  placeholder="Confirm Password *" value="" />
+												</div>-->
+												<div class="form-group">
+													<input type="text" id="phone" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Your Phone *" value="" />
+												</div>
+												<div class="custom-control custom-radio custom-control-inline">
+													<input type="radio" name="option" value="provider">Provider</input>
+
+												  </div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<input type="email" id="email" class="form-control" placeholder="Your Email *" value="" />
+												</div>
+												
+												<div class="form-group">
+													<select id="cuisine" class="form-control">
+														<option class="hidden"  selected disabled>Cusinies</option>
+														<option>Medeterinaian</option>
+														<option>Indian</option>
+														<option>Asian</option>
+													</select>
+												</div>
+												<div class="form-group">
+													<select id="gender" class="form-control">
+														<option class="hidden"  selected disabled>Gender</option>
+														<option>Male</option>
+														<option>Female</option>
+													</select>
+												</div>
+												<div class="custom-control custom-radio custom-control-inline">
+													<input type="radio" name="option" value="customer">Customer</input>
+
+												  </div>
+												<input type="submit" class="btnRegister"  value="Register"/>
+											</div>
+											<div id="result" style="display: none;">
+												<p>Your account has been succesfully generated you can login <a href="login.html">Here</a></p>
+											</div>
+										</div>
+									
+									</div>
+								</form>
+								
+								</div>
+							</div>
+						
+		
+					</div>
+
+
+				</div>
+				<div class="col-md-5 contact-left">
+					
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- //contact -->	
+<!-- Footer -->
+<div class="footer w3ls">
+	<div class="container">
+		<div class="footer-main">
+			<div class="footer-top">
+				<div class="col-md-4 ftr-grid fg2 mid-gd">
+					<h3>Our Address</h3>
+					<div class="ftr-address">
+						<div class="local">
+							<i class="fa fa-map-marker" aria-hidden="true"></i>
+						</div>
+						<div class="ftr-text">
+							<p></p>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="ftr-address">
+						<div class="local">
+							<i class="fa fa-phone" aria-hidden="true"></i>
+						</div>
+						<div class="ftr-text">
+							<p></p>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="ftr-address">
+						<div class="local">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</div>
+						<div class="ftr-text">
+							<p></p>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+				
+			   <div class="clearfix"> </div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+ <div class="copyrights">
+	<div class="container">
+		<div class="copyright">
+		</div>
+		<div class="social-icons">
+			<ul>
+				<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+				<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+				<li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+			</ul>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+<!-- Footer -->	
+
+<!-- start-smoth-scrolling -->
+<script src="js/SmoothScroll.min.js"></script>
+<script src="js/utils.js"></script>
+
+<script type="text/javascript" src="js/move-top.js"></script>
+	<script type="text/javascript" src="js/easing.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
+				event.preventDefault();
+				$('html,body').animate({
+					scrollTop: $(this.hash).offset().top
+				}, 1000);
+			});
+		});
+	</script>
+
+	<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+								
+			$().UItoTop({ easingType: 'easeOutQuart' });
+								
+			});
+	</script>
+<!-- //here ends scrolling icon -->
+
+<script type="text/javascript">
+      
+     
+</script>
+<!-- for bootstrap working -->
+	<script src="js/bootstrap.js"></script>
+<!-- //for bootstrap working -->
+
+</body>
+</html>
