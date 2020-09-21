@@ -43,7 +43,7 @@ const loginUser = e => {
             console.log(objs.password === pass);
 
             if(objs.email === mail && objs.password === pass){
-                localStorage.setItem("token",doc.id);
+                localStorage.setItem("token", doc.id);
                 type == "provider" ? location.href = './protected/index.html' : location.href = './protected/cindex.html'
             }
         });

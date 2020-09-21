@@ -43,8 +43,14 @@ const orderMeal = e => {
   
   
   var obj = {"mealID" : location.search.split('id=')[1], "buyer" : localStorage.getItem("token"), "seller" : $('#mealOwner').text(), "orderTime": new Date()}
-  db.collection('Orders').add(obj).then(() => {
+  db.collection('Orders').add(obj).then((transaction) => {
     console.log("Order successfully written!");
+    $("#orderResult").show();
+
+    
+    //var data = {"buyer":obj.buyer, "mealID":obj.mealID, "orderTime":obj.orderTime, "orderNo": transaction.id};
+    //var markup = "<tr><td>"+data.orderNo+"</td><td>" + data.buyer + "</td><td>" + data.mealID + "</td><td>"+ data.orderTime+"</td></tr>";
+    //$("#orderTable").append(markup);
   })
   .catch((error) => {
     console.error("Error writing Order: ", error);
