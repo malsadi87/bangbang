@@ -16,7 +16,7 @@ const addMeal = e => {
       console.log("Meal successfully added!");
       $("#addResult").show();
 
-      updateReadyMeals(obj);
+      //updateReadyMeals(obj);
       
     })
     .catch((error) => {
@@ -36,7 +36,7 @@ const updateIncomingOrders = (entry) => {
     $("#orderTable").append(markup);
 }
 
-const fillMealsAndOrders = e => {
+const loadMyMeals = e => {
   console.log("Token  " + localStorage.getItem("token"));
   db.collection('Meals').get().then((snapshots)=> {
     var meal;
@@ -44,37 +44,58 @@ const fillMealsAndOrders = e => {
 
     snapshots.docs.forEach((doc) => {
         meal = doc.data();
+        if(meal.owner == localStorage.getItem("token")){
         tableHTML += "<th scope='row'>" + meal.name + "</th>";
         tableHTML += "<th scope='row'>" + meal.type + "</th>";
         tableHTML += "<td>" + meal.cuisine + "</td>";
         tableHTML += "<td>" + meal.price + "</td>";
       //}
       tableHTML += "</tr>";
-  
+        }
     });
     document.getElementById("readyMeals").innerHTML = tableHTML;
 
     
 })
-
-
-db.collection('Orders').get().then((snapshots)=> {
-  var order;
-  var orderTable= "<tr><thead><tr> <th>#</th><th>Customer</th><th>Meal</th><th>Time</th></tr></thead>";
-
-  snapshots.docs.forEach((doc) => {
-      order = doc.data();
-      orderTable += "<th scope='row'>" + doc.id + "</th>";
-      orderTable += "<th scope='row'>" + order.buyer + "</th>";
-      orderTable += "<td>" + order.mealID + "</td>";
-      orderTable += "<td>" + order.orderTime.toDate().toLocaleString() + "</td>";
-    //}
-    orderTable += "</tr>";
-
-  });
-  document.getElementById("orderTable").innerHTML = orderTable;
-
-  
-})
-   
 }
+
+const loadIncomingOrders = e => {
+
+  db.collection('Orders').get().then((snapshots)=> {
+    var order;
+    var orderTable= "<tr><thead><tr> <th>#</th><th>Customer</th><th>Meal</th><th>Time</th></tr></thead>";
+  
+    snapshots.docs.forEach((doc) => {
+        order = doc.data();
+        if(order.seller == localStorage.getItem("token")){
+        orderTable += "<th scope='row'>" + truncateString(doc.id,5) + "</th>";
+                                               orderTable += "<td>" + truncateString(order.buyer,5) + "</td>";
+                                               orderTable += "<td>" + truncateString(order.mealID,5) + "</td>";
+                                               orderTable += "<td>" + order.orderTime.toDate().toLocaleString() + "</td>";
+                                             //}
+                                             orderTable += "</tr>";
+        }
+                                        
+    });
+    document.getElementById("orderTable").innerHTML = orderTable;
+  })
+}
+
+const getUsername = async(id) => {
+  firebase.firestore().collection('customers').doc(id).get()
+                                          
+                                           .then(function (querySnapshot) {
+                                               //console.log(querySnapshot.id, querySnapshot.data());
+                                               var c = querySnapshot.data();
+                                               console.log("the name of the customer is " + c.name);
+                                               return c.name;
+                                           }).catch(function(error) {
+                                               console.log("Error getting documents: ", error);
+                                          });
+}
+
+const truncateString = (string, maxLength = 50) => {
+  if (!string) return null;
+  if (string.length <= maxLength) return string;
+  return `${string.substring(0, maxLength)}...`;
+};

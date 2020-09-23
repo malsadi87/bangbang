@@ -58,3 +58,39 @@ const orderMeal = e => {
 
 }
 
+const loadMyOrders = e => {
+
+    db.collection("Orders").where("buyer", "==", localStorage.getItem("token"))
+    .get()
+    .then(function(querySnapshot) {
+      var order ;
+      var orderTable= "<tr><thead><tr> <th>#</th><th>Customer</th><th>Meal</th><th>Time</th></tr></thead>";
+        querySnapshot.forEach(function(doc) {
+           
+            order = doc.data();
+            orderTable += "<th scope='row'>" + truncateString(doc.id,5) + "</th>";
+                                                 orderTable += "<td>" + truncateString(order.buyer,5) + "</td>";
+                                                 orderTable += "<td>" + truncateString(order.mealID,5) + "</td>";
+                                                 orderTable += "<td>" + order.orderTime.toDate().toLocaleString() + "</td>";
+                                               //}
+                                               orderTable += "</tr>";
+
+        });
+        document.getElementById("myOrders").innerHTML = orderTable;
+
+    })
+    .catch(function(error) {
+        alert("Error getting orders: ", error);
+    });
+
+
+}
+
+
+const truncateString = (string, maxLength = 50) => {
+  if (!string) return null;
+  if (string.length <= maxLength) return string;
+  return `${string.substring(0, maxLength)}...`;
+};
+
+
